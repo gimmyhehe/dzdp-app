@@ -1,9 +1,8 @@
 import React from 'react'
-import { Router, Route, IndexRoute } from 'react-router'
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import App from '../pages'
 import Home from '../pages/Home'
-import City from '../pages/City'
 // import User from '../pages/User'
 // import Search from '../pages/Search'
 // import Detail from '../pages/Detail'
@@ -15,11 +14,13 @@ import City from '../pages/City'
 class RouterMap extends React.Component {
     render() {
         return (
-            <Router history={this.props.history}>
+            <Router>
+              <div>
                 <Route path='/' component={App}>
-                    <IndexRoute component={Home}/>
-                    <Route path='/city' component={City}/>
                 </Route>
+                <Route path='/tohome' component={Home}>
+                </Route>
+              </div>  
             </Router>
         )
     }
