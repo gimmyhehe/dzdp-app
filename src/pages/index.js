@@ -10,11 +10,13 @@ import * as userInfoActionsFromOtherFile from '../redux/actions/userinfo'
 import Home from './Home'
 import City from './City'
 import HomeHeader from '../components/HomeHeader'
+import MyCarousel from '../components/MyCarousel'
 class App extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            initDone: false
+            initDone: false,
+            fetchData: '1'
         }
     }
     render() {
@@ -24,7 +26,10 @@ class App extends React.Component {
                 this.state.initDone ?
                 <div>
                     <HomeHeader cityName={this.props.userinfo.cityName}></HomeHeader>
+                    <MyCarousel>
+                    </MyCarousel>
                     <City userinfo = {this.props.userinfo}></City>
+                    hello {this.state.fetchData}
                     <Route exact path="/" component={Home}/>
                     <Route path='/city'  component={City}/>
                 </div>
@@ -34,6 +39,11 @@ class App extends React.Component {
         )
     }
     componentDidMount() {
+        fetch('/api/test/')
+        .then(response => {
+          console.log(response)
+          this.setState({fetchData: "response"})
+        })
         // 获取位置信息
         let cityName = LocalStore.getItem(CITYNAME)
         if (cityName == null) {

@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import App from '../pages'
-import Home from '../pages/Home'
+import City from '../pages/City'
 // import User from '../pages/User'
 // import Search from '../pages/Search'
 // import Detail from '../pages/Detail'
@@ -18,7 +18,7 @@ class RouterMap extends React.Component {
               <div>
                 <Route path='/' component={App}>
                 </Route>
-                <Route path='/tohome' component={Home}>
+                <Route path='/tohome' component={City}>
                 </Route>
               </div>  
             </Router>

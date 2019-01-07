@@ -4,7 +4,7 @@ class City extends React.Component {
     render() {
         return (
             <div>
-                <h1>{this.props.userinfo.cityName}</h1>
+                <h1>{this.props.userinfo ? this.props.userinfo.cityName : "no cityName"}</h1>
             </div>
         )
     }
