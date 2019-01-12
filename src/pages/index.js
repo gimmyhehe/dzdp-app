@@ -1,5 +1,4 @@
 import React from 'react'
-import { Route  } from "react-router-dom";
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
@@ -7,10 +6,14 @@ import LocalStore from '../util/localStore'
 import { CITYNAME } from '../config/localStoreKey'
 import * as userInfoActionsFromOtherFile from '../redux/actions/userinfo' 
 
-import Home from './Home'
-import City from './City'
 import HomeHeader from '../components/HomeHeader'
 import MyCarousel from '../components/MyCarousel'
+import RecommendList from './Home/subPage/RecommendList'
+import Ad from './Home/subPage/Ad'
+
+import { List } from 'antd-mobile';
+const Item = List.Item;
+const Brief = Item.Brief;
 class App extends React.Component {
     constructor(props, context) {
         super(props, context);
@@ -28,10 +31,18 @@ class App extends React.Component {
                     <HomeHeader cityName={this.props.userinfo.cityName}></HomeHeader>
                     <MyCarousel>
                     </MyCarousel>
-                    <City userinfo = {this.props.userinfo}></City>
-                    hello {this.state.fetchData}
-                    <Route exact path="/" component={Home}/>
-                    <Route path='/city'  component={City}/>
+                    <List renderHeader={() => '带副标题'} className="my-list">
+                        <Item arrow="horizontal" multipleLine>
+                        标题文字 <Brief>副标题</Brief>
+                        </Item>
+                        <Item arrow="horizontal" thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png" multipleLine>
+                        标题文字 <Brief>副标题</Brief>
+                        </Item>
+                    </List>
+                    <Ad></Ad>
+                    <RecommendList userinfo = {this.props.userinfo}></RecommendList>
+                    {/* <City userinfo = {this.props.userinfo}></City> */}
+                    {/* hello {this.state.fetchData} */}
                 </div>
                 :<div>加载中...</div>
                 }
@@ -39,11 +50,6 @@ class App extends React.Component {
         )
     }
     componentDidMount() {
-        fetch('/api/test/')
-        .then(response => {
-          console.log(response)
-          this.setState({fetchData: "response"})
-        })
         // 获取位置信息
         let cityName = LocalStore.getItem(CITYNAME)
         if (cityName == null) {

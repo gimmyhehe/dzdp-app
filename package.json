@@ -6,6 +6,7 @@
     "@babel/core": "7.1.0",
     "@svgr/webpack": "2.4.1",
     "antd": "^3.11.6",
+    "antd-mobile": "^2.2.8",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.0.0",
     "babel-jest": "23.6.0",
@@ -29,6 +30,7 @@
     "file-loader": "2.0.0",
     "fork-ts-checker-webpack-plugin-alt": "0.4.14",
     "fs-extra": "7.0.0",
+    "history": "^4.7.2",
     "html-webpack-plugin": "4.0.0-alpha.2",
     "identity-obj-proxy": "3.0.0",
     "jest": "23.6.0",
@@ -130,6 +132,5 @@
     "presets": [
       "react-app"
     ]
-  },
-  "proxy": "http://localhost:3001"
+  }
 }

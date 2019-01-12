@@ -310,7 +310,12 @@ module.exports = {
                   "libraryName": "antd",
                   "libraryDirectory": "es",
                   "style": "css" // `style: true` 会加载 less 文件
-                }]
+                }],
+                ["import", {
+                  style: 'css',  // 'less',
+                  libraryName: 'antd-mobile',
+                },
+                "antd-mobile"]
               ],
               cacheDirectory: true,
               // Save disk space when time isn't as important

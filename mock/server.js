@@ -16,7 +16,7 @@ router.get('/', function (ctx, next) {
   });
 // 首页 —— 广告（超值特惠）
 var homeAdData = require('./home/ad.js')
-router.get('/api/homead', function *(ctx,next) {
+router.get('/api/homead', function (ctx,next) {
     ctx.body = homeAdData
 });
 

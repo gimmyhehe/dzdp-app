@@ -3,17 +3,19 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux'
 import configureStore from './redux/store/configureStore'
 import * as serviceWorker from './serviceWorker';
+import { createBrowserHistory } from 'history';
 
 import RouteMap from './router/routeMap'
 //引入项目的通用样式
 import './static/css/common.less'
 import './static/css/font.css'
 
+const history = createBrowserHistory();
 const store = configureStore()
 ReactDOM
 .render(
   <Provider store={store}>
-    <RouteMap />
+    <RouteMap history={history}/>
   </Provider>,
   document.getElementById('root')
 );
