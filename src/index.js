@@ -14,7 +14,7 @@ const history = createBrowserHistory();
 const store = configureStore()
 ReactDOM
 .render(
-  <Provider store={store}>
+  <Provider store={store} >
     <RouteMap history={history}/>
   </Provider>,
   document.getElementById('root')

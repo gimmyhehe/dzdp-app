@@ -1,5 +1,6 @@
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
+import { withRouter } from 'react-router-dom'
 
 import './style.less'
 
@@ -24,6 +25,8 @@ class HomeAd extends React.Component {
             </div>
         )
     }
+    componentDidMount(){
+    }
 }
 
-export default HomeAd
+export default withRouter(HomeAd)

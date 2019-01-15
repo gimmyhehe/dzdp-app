@@ -1,5 +1,6 @@
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
+import { withRouter } from 'react-router-dom'
 
 import './style.scss'
 
@@ -11,7 +12,7 @@ class HomeHeader extends React.Component {
     render() {
         return (
             <div id="home-header" className="clear-fix">
-                <div className="home-header-left float-left">
+                <div className="home-header-left float-left" onClick={this.openCityPage.bind(this)}>
                     <span>{this.props.cityName}</span>
                     &nbsp;
                     <i className="icon-angle-down"></i>
@@ -28,6 +29,9 @@ class HomeHeader extends React.Component {
             </div>
         )
     }
+    openCityPage(){
+        this.props.history.push('/city')
+    }
 }
 
-export default HomeHeader
+export default withRouter(HomeHeader)

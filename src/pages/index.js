@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { Link } from 'react-router-dom'
 
 import LocalStore from '../util/localStore'
 import { CITYNAME } from '../config/localStoreKey'
@@ -40,6 +41,7 @@ class App extends React.Component {
                         </Item>
                     </List>
                     <Ad></Ad>
+                    <Link replace={false}  to="/test1/aa">to test aa</Link>
                     <RecommendList userinfo = {this.props.userinfo}></RecommendList>
                     {/* <City userinfo = {this.props.userinfo}></City> */}
                     {/* hello {this.state.fetchData} */}
